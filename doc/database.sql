@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Loomise aeg: Sept 26, 2013 kell 10:27 PM
+-- Loomise aeg: Okt 02, 2013 kell 12:10 PM
 -- Serveri versioon: 5.5.32
 -- PHP versioon: 5.4.19
 
@@ -31,15 +31,18 @@ CREATE TABLE IF NOT EXISTS `post` (
   `post_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `user_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`post_id`),
-  KEY `user_id` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  KEY `user_id` (`user_id`),
+  KEY `user_id_2` (`user_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Andmete tõmmistamine tabelile `post`
 --
 
 INSERT INTO `post` (`post_id`, `post_subject`, `post_text`, `post_created`, `user_id`) VALUES
-(1, '', '', '2013-09-26 20:11:33', 0);
+(1, '', '', '2013-09-26 20:11:33', 0),
+(2, 'Tere', 'Normaalne pidu, hea post.', '2013-10-02 09:58:04', 1),
+(3, 'Tere2', 'Hea postitus jällegi.', '2013-10-02 09:58:35', 1);
 
 -- --------------------------------------------------------
 
