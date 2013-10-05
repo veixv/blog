@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Loomise aeg: Okt 05, 2013 kell 01:26 PM
+-- Loomise aeg: Okt 05, 2013 kell 07:24 PM
 -- Serveri versioon: 5.5.32
 -- PHP versioon: 5.4.19
 
@@ -16,6 +16,27 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `blog` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `blog`;
+
+-- --------------------------------------------------------
+
+--
+-- Tabeli struktuur tabelile `comment`
+--
+
+DROP TABLE IF EXISTS `comment`;
+CREATE TABLE IF NOT EXISTS `comment` (
+  `comment_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `comment` text NOT NULL,
+  PRIMARY KEY (`comment_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Andmete tõmmistamine tabelile `comment`
+--
+
+INSERT INTO `comment` (`comment_id`, `comment`) VALUES
+(1, 'Kommentaar 1234'),
+(2, 'Kommentaar 5678');
 
 -- --------------------------------------------------------
 
@@ -42,6 +63,27 @@ CREATE TABLE IF NOT EXISTS `post` (
 INSERT INTO `post` (`post_id`, `post_subject`, `post_text`, `post_created`, `user_id`) VALUES
 (2, 'Tere', 'Normaalne pidu, hea post.', '2013-10-02 09:58:04', 1),
 (3, 'Tere2', 'Hea postitus jällegi.', '2013-10-02 09:58:35', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Tabeli struktuur tabelile `post_comment`
+--
+
+DROP TABLE IF EXISTS `post_comment`;
+CREATE TABLE IF NOT EXISTS `post_comment` (
+  `post_id` int(11) NOT NULL,
+  `comment_id` int(11) NOT NULL,
+  PRIMARY KEY (`post_id`,`comment_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Andmete tõmmistamine tabelile `post_comment`
+--
+
+INSERT INTO `post_comment` (`post_id`, `comment_id`) VALUES
+(2, 1),
+(3, 2);
 
 -- --------------------------------------------------------
 
