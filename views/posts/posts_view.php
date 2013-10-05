@@ -30,3 +30,15 @@
   </div>
 </div>
 <hr>
+
+<h2>Comments</h2>
+<div>
+	<? sizeof($comments) == 0 ? print("No comments") : print("There are ".sizeof($comments). " comment"); sizeof($comments)>1?print("s"):"" ?>
+	<hr>
+	<?foreach ($comments as $comment):?>
+		<p>
+			<?=$comment['comment']?>
+		</p>
+		<hr>
+	<?endforeach?>
+</div>
