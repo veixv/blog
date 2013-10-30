@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Loomise aeg: Okt 05, 2013 kell 07:24 PM
+-- Loomise aeg: Okt 30, 2013 kell 08:12 PM
 -- Serveri versioon: 5.5.32
 -- PHP versioon: 5.4.19
 
@@ -61,6 +61,7 @@ CREATE TABLE IF NOT EXISTS `post` (
 --
 
 INSERT INTO `post` (`post_id`, `post_subject`, `post_text`, `post_created`, `user_id`) VALUES
+(1, 'Tere3', 'Postitus, normaalne postitus.', '2013-10-30 19:07:32', 1),
 (2, 'Tere', 'Normaalne pidu, hea post.', '2013-10-02 09:58:04', 1),
 (3, 'Tere2', 'Hea postitus jällegi.', '2013-10-02 09:58:35', 1);
 
@@ -107,7 +108,10 @@ INSERT INTO `post_tags` (`post_id`, `tag_id`) VALUES
 (2, 1),
 (3, 1),
 (2, 2),
-(3, 2);
+(3, 2),
+(2, 3),
+(1, 4),
+(3, 4);
 
 -- --------------------------------------------------------
 
@@ -120,7 +124,7 @@ CREATE TABLE IF NOT EXISTS `tag` (
   `tag_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `tag_name` varchar(25) NOT NULL,
   PRIMARY KEY (`tag_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Andmete tõmmistamine tabelile `tag`
@@ -128,7 +132,9 @@ CREATE TABLE IF NOT EXISTS `tag` (
 
 INSERT INTO `tag` (`tag_id`, `tag_name`) VALUES
 (1, 'Post'),
-(2, 'Pidu');
+(2, 'Pidu'),
+(3, 'Tagg'),
+(4, 'Tag');
 
 -- --------------------------------------------------------
 
@@ -160,6 +166,6 @@ INSERT INTO `user` (`user_id`, `username`, `password`, `deleted`) VALUES
 -- Piirangud tabelile `post_tags`
 --
 ALTER TABLE `post_tags`
-  ADD CONSTRAINT `post_tags_ibfk_2` FOREIGN KEY (`tag_id`) REFERENCES `tag` (`tag_id`),
-  ADD CONSTRAINT `post_tags_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `post` (`post_id`);
+  ADD CONSTRAINT `post_tags_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `post` (`post_id`),
+  ADD CONSTRAINT `post_tags_ibfk_2` FOREIGN KEY (`tag_id`) REFERENCES `tag` (`tag_id`);
 SET FOREIGN_KEY_CHECKS=1;
