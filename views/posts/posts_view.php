@@ -23,10 +23,20 @@
 					| <i class="icon-tags"></i> Tags
 					<?foreach ($tags as $tag): ?>
 						<a href="<?=BASE_URL?>tags/view/<?=$tag['tag_id']?>"><span class="label label-info" style="background-color:#5bc0de"><?=$tag['tag_name']?></span></a>
-
 					<?endforeach?>
 				</p>
 			</div>
+			<h2>Comments</h2>
+			<div>
+				<? sizeof($comments) == 0 ? print("No comments") : print("There are ".sizeof($comments). " comment"); sizeof($comments)>1?print("s"):"" ?>
+				<hr>
+				<?foreach ($comments as $comment):?>
+				<p>
+					<?=$comment['comment']?>
+				</p>
+				<?endforeach?>
+				<hr>
+		</div>
 		</div>
 	</div>
 </div>
