@@ -47,6 +47,7 @@
 				<li <?= $controller == "posts" ? 'class="active"' : ''?>><a href="<?=BASE_URL?>">Posts</a></li>
 				<li <?= $controller == "tags" ? 'class="active"' : ''?>><a href="<?=BASE_URL?>tags">Tags</a></li>
 				<li <?= $controller == "users" ? 'class="active"' : ''?>><a href="<?=BASE_URL?>users">Users</a></li>
+				<li <?= $controller == "logout" ? 'class="active"' : ''?>><a href="<?=BASE_URL?>logout">Logout</a></li>
 					<!--
 					<ul class="dropdown-menu">
 						<li><a href="#">Action</a></li>
@@ -59,10 +60,6 @@
 					</ul>
 				</li>
 				-->
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#">Sign out</a></li>
-			</ul>
 		</div><!--/.nav-collapse -->
 	</div>
 </div>
